@@ -29,8 +29,8 @@ def host_info():
             interface_info[iface] = 'Error'
 
     return jsonify({
-        "project": "project01",
-        "maintainer": "Ayush Rawat",
+        "project": "project05",
+        "maintainer": "Lucifer morning",
         "hostname": hostname,
         "local_ip": local_ip,
         "Message": "new testing..................."
