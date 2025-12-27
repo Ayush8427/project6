@@ -30,7 +30,7 @@ def host_info():
 
     return jsonify({
         "project": "project06",
-        "maintainer": "Ayush Rawat",
+        "maintainer": "Lucifer",
         "hostname": hostname,
         "local_ip": local_ip,
         "Message": "new testing..................."
