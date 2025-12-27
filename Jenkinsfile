@@ -3,10 +3,10 @@ pipeline {
     // as no agent is configured, by default run in the jenkins master pod
     
     environment {
-        DOCKER_REGISTRY = "docker.io/sayantan2k21"
+        DOCKER_REGISTRY = "docker.io/ayush8427"
         APP_NAME = "host-info-app"
         IMAGE_NAME = "${DOCKER_REGISTRY}/${APP_NAME}"
-        GITHUB_SOURCE_CODE_REPO = "https://github.com/Sayantan2k24/LW-Project-06-Kubeadm-Multi-Node-Deploy-Dockerized-Jenkins-Ansible-Automate-Deployment.git"
+        GITHUB_SOURCE_CODE_REPO = "https://github.com/Ayush8427/project6.git"
         BRANCH = "main"
     }
 
@@ -80,19 +80,19 @@ EOF'
             }
         }
 
-        // stage('Scale Application') {
-        //     when {
-        //         branch 'production'
-        //     }
-        //     steps {
-        //         container('ansible') {
-        //             sh '''
-        //             ansible-playbook /etc/ansible/playbooks/scale-deployment.yml \
-        //               --extra-vars replicas=5 app_name=${APP_NAME}
-        //             '''
-        //         }
-        //     }
-        // }
+         stage('Scale Application') {
+             when {
+                 branch 'production'
+             }
+             steps {
+                 container('ansible') {
+                     sh '''
+                     ansible-playbook /etc/ansible/playbooks/scale-deployment.yml \
+                       --extra-vars replicas=5 app_name=${APP_NAME}
+                     '''
+                 }
+             }
+        }
     }
 
     post {
